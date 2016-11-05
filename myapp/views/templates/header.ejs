@@ -1,15 +1,29 @@
+
 <head>
   <title><%= title %></title>
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
+
 
 <nav id ="navbar-fed" class="navbar navbar-default" role="navigation">
   <ul class="nav navbar-nav">
-    <li class="active"><a href="/">Home<span class="sr-only">(current)</span></a></li>
+    <li><a href="/">Home</a></li>
     <li><a href="/about">About us</a></li>
     <li><a href="/contact">Contact us</a></li>
     <li><a href ="/geocoding_example">Geocoding Example</a></li>
   </ul>
 </nav>
+
+<!-- citation: http://stackoverflow.com/questions/35427641/how-to-dynamically-set-the-active-class-in-bootstrap-navbar?rq=1 -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        var url = window.location;
+        $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+        $('ul.nav a').filter(function() {
+             return this.href == url;
+        }).parent().addClass('active');
+    });
+</script>
