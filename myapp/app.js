@@ -10,6 +10,8 @@ var users = require('./routes/users');
 var about = require('./routes/about');
 var geocoding_example = require('./routes/geocoding_example');
 var database = require('./routes/database');
+var formTest = require('./routes/formTest');
+var results = require('./routes/results');
 var app = express();
 
 // view engine setup
@@ -24,7 +26,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+app.use("/results", results);
+app.use('/formTest', formTest);
 app.use('/', index);
 app.use('/users', users);
 app.use('/', routes);
