@@ -96,6 +96,6 @@ var test_location = {
                        "status" : "OK"
                     }
 
-var nyc = new google.maps.LatLng(40.715, -74.002);
-var london = new google.maps.LatLng(51.506, -0.119);
-var distance = google.maps.geometry.spherical.computeDistanceBetween(nyc, london);
+// var nyc = new google.maps.LatLng(40.715, -74.002);
+// var london = new google.maps.LatLng(51.506, -0.119);
+// var distance = google.maps.geometry.spherical.computeDistanceBetween(nyc, london);
