@@ -1,3 +1,45 @@
+.navbar{
+    background-image: none;
+}
+
+#navbar-fed.navbar-default { /* #3C3C3C - #222222 */
+    padding: 10px;
+    font-size: 14px;
+    color: #595B60;
+    background-color: #36C3BF;
+    /*background: #36C3BF;*/
+    border: 0px;
+    border-radius: 0;
+}
+#navbar-fed.navbar-default .navbar-nav>li>a:hover,
+#navbar-fed.navbar-default .navbar-nav>li>a:focus,
+#navbar-fed.navbar-default .navbar-nav>li>ul>li>a:hover,
+#navbar-fed.navbar-default .navbar-nav>li>ul>li>a:focus,
+#navbar-fed.navbar-default .navbar-nav>.active>a,
+#navbar-fed.navbar-default .navbar-nav>.active>a:hover,
+#navbar-fed.navbar-default .navbar-nav>.active>a:focus {
+    color: #595B60;
+    /*background-color: #36C3BF;*/
+    background: -webkit-linear-gradient(top, #d8d559 0%, #d8d559 100%);
+    background: linear-gradient(to bottom, #d8d559 0%, #d8d559 100%);
+}
+
+
+#navbar-fed.navbar-default .navbar-toggle:hover,
+#navbar-fed.navbar-default .navbar-toggle:focus {
+    background-color: #595B60 ;
+}
+#navbar-fed.navbar-default .navbar-nav>li>a,
+#navbar-fed.navbar-default .navbar-nav>li>ul>li>a,
+#navbar-fed.navbar-default .navbar-brand {
+    color: #595B60 ;
+}
+#navbar-fed.navbar-default .navbar-toggle .icon-bar,
+#navbar-fed.navbar-default .navbar-toggle:hover .icon-bar,
+#navbar-fed.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color:  #000000 ;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
