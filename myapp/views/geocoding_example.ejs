@@ -1,10 +1,81 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=true_or_false"></script>
-    <script type="text/javascript" src="./public/scripts/geocoding_example.js"></script>
     <title>EXPRESS</title>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5TWwbYBTVCPbrB2GDG3eqtGEFZvF9aVQ&libraries=geometry&callback=initMap">
+    </script>
+    <style>/* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #floating-panel {
+      position: absolute;
+      top: 10px;
+      left: 25%;
+      z-index: 5;
+      background-color: #fff;
+      padding: 5px;
+      border: 1px solid #999;
+      text-align: center;
+      font-family: 'Roboto','sans-serif';
+      line-height: 30px;
+      padding-left: 10px;
+    }
+    </style>
   </head>
+    <script type="text/javascript">
+    var results1;
+    var results2;
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: {lat: -34.397, lng: 150.644}
+      });
+      var geocoder = new google.maps.Geocoder();
+
+      document.getElementById('submit').addEventListener('click', function() {
+        geocodeAddress(geocoder);
+      });
+    }
+
+    function geocodeAddress(geocoder) {
+      var address = "Topeka, KS";
+      var loc1;
+      var loc2;
+      var address2 = "Lawrence, KS";
+      loc1 = geocoder.geocode({'address': address}, function(results, status) {
+        	results1 = results[0];
+          var location = results1.geometry.location;
+          return loc1;
+      });
+      alert(typeof loc1);
+      geocoder.geocode({'address': address2}, function(results, status) {
+        if (status === 'OK') {
+        	results2 = results[0];
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+      // loc1 = results1.geometry.location;
+      // loc2 = results2.geometry.location;
+      // alert("Topeka = " + loc1);
+      // alert("Lawrence = " + loc2);
+      // var distance;
+      // distance = 0.000621371*google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2);
+     // 	alert(distance + " Miles");
+
+    }
+
+    </script>
+
 
   <body>
     <% include templates/header.ejs %>
@@ -12,7 +83,13 @@
     <p> Here is an example that uses the Google Geocoding API to take an address and turn it into GPS Coordinates</p>
     <p> 1) Enter Address and Print GPS Coordinates</p>
     <p> 2) Enter Two Address and Get Distance Between Them</p>
-    <a id="myLink">What</a>
+
+    <div id="floating-panel">
+    <input id="address" type="textbox" value="Sydney, NSW">
+    <input id="submit" type="button" value="Geocode">
+  </div>
+  <div id="map"></div>
+  <!-- Replace the value of the key parameter with your own API key. -->
 
   </body>
 </html>
