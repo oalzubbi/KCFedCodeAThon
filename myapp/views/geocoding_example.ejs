@@ -54,9 +54,10 @@
       loc1 = geocoder.geocode({'address': address}, function(results, status) {
         	results1 = results[0];
           var location = results1.geometry.location;
-          return loc1;
+          alert(JSON.stringify(location));
+          return 3;
       });
-      alert(typeof loc1);
+      alert(loc1);
       geocoder.geocode({'address': address2}, function(results, status) {
         if (status === 'OK') {
         	results2 = results[0];

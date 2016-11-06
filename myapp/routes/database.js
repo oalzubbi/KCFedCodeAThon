@@ -15,10 +15,12 @@ var sql = 'SELECT * from Test';
 connection.connect();
 router.get('/', function(req, res, next) {
   connection.query(sql, function(err, rows, fields) {
-    var string = JSON.stringify(rows)
+    var string = JSON.stringify(rows);
+    var m_rows = "" + rows.value_1;
+    // var m_rows = JSON.stringify(rows.value_1);
     if (err) throw err;
     res.render('database', { title: 'database', rows: string });
-    console.log(rows);
+    console.log("WHAHHAT" + rows[0].value_1);
   });
 });
 /*
