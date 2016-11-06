@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+// var http = require('http');
 mysql = require('mysql');
 
 var connection = mysql.createConnection({
@@ -45,6 +46,7 @@ router.get('/', function(req, res){
   var m_rows = 0;
   var userName = 0;
   // var userName = req.body.userName;
+
   var html = '<form action="/results" method="post">' +
                'Enter your Username:' +
                '<input type="text" name="userName" placeholder="bob" />' +
@@ -66,9 +68,7 @@ router.get('/', function(req, res){
                '<br>' +
                '<button type="submit">Submit</button>' +
             '</form>';
-  // connection.connect();
   var sql = 'SELECT * from Test';
-  // var sql2 = 'INSERT INTO Users (User_Id, LastName, FirstName, Karma, Verified, Bio, Location) VALUES (' + userName + ',' + l_name + ', ' + f_name + ', ' + 0 + ', ' + 0 + ', ' + bio + ', ' + city + ')';
   connection.query(sql, function(err, rows, fields) {
      var string = JSON.stringify(rows)
      if (err) throw err;
@@ -77,6 +77,6 @@ router.get('/', function(req, res){
     //  res.render('database', { title: 'database', rows: string });
   });
   console.log("Goodbye " + userName);
-  // connection.end();
-  res.send(html);
+  res.render('formTest', {myform: html, title: "Register" });
+
 });
