@@ -1,18 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-<<<<<<< Updated upstream
-
 router.get('/', isLoggedIn, function(req, res){
   var user;
   if(req.user != undefined)
     user = req.user[0].User_Id;
-=======
-module.exports = router;
-
-router.get('/', isLoggedIn, function(req, res){
-
->>>>>>> Stashed changes
   var html = '<form action="/login_results" method="post">' +
                'Enter your Username:' +
                '<input type="text" name="username" placeholder="bob" />' +
@@ -22,11 +14,7 @@ router.get('/', isLoggedIn, function(req, res){
                '<br>' +
                '<button type="submit">Submit</button>' +
             '</form>';
-<<<<<<< Updated upstream
   res.render('login', {myform: html, title: "Login", user: user});
-=======
-  res.render('login', {myform: html, title: "Login" });
->>>>>>> Stashed changes
 
 });
 
@@ -34,7 +22,6 @@ router.get('/', isLoggedIn, function(req, res){
 function isLoggedIn(req, res, next) {
 
 	// if user is authenticated in the session, carry on
-<<<<<<< Updated upstream
 	if (!req.isAuthenticated()) {
 		return next();
   }
@@ -48,11 +35,3 @@ res.render('index', {title: "FED PROJECT", user: user});
 }
 
 module.exports = router;
-=======
-	if (!req.isAuthenticated())
-		return next();
-
-	// if they aren't redirect them to the home page
-	res.redirect('/');
-}
->>>>>>> Stashed changes

@@ -15,19 +15,14 @@ var connection = mysql.createConnection({
 var sql = 'SELECT * from Users';
 connection.connect();
 router.get('/', function(req, res, next) {
-<<<<<<< Updated upstream
   var user;
   if(req.user != undefined)
     user = req.user[0].User_Id;
   connection.query(sql, function(err, rows, fields, req) {
-=======
-  connection.query(sql, function(err, rows, fields) {
->>>>>>> Stashed changes
     var string = JSON.stringify(rows);
     var m_rows = "" + rows.value_1;
     // var m_rows = JSON.stringify(rows.value_1);
     if (err) throw err;
-<<<<<<< Updated upstream
     var drinks = [
         { name: 'Bloody Mary', drunkness: 3 },
         { name: 'Martini', drunkness: 5 },
@@ -36,10 +31,6 @@ router.get('/', function(req, res, next) {
 
     // var current_user = req.user;
     res.render('database', { title: 'database', rows: string, drinks: drinks, user: user });
-=======
-    res.render('database', { title: 'database', rows: string });
-    console.log("WHAHHAT" + rows[0].value_1);
->>>>>>> Stashed changes
   });
 });
 /*

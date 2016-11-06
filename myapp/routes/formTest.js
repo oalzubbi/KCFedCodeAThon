@@ -5,13 +5,10 @@ var router = express.Router();
 module.exports = router;
 
 router.get('/', function(req, res){
-<<<<<<< Updated upstream
   var user;
   if(req.user != undefined)
     user = req.user[0].User_Id;
-=======
 
->>>>>>> Stashed changes
   var html = '<form action="/results" method="post">' +
                'Enter your Username:' +
                '<input type="text" name="username" placeholder="bob" />' +
@@ -38,10 +35,7 @@ router.get('/', function(req, res){
             '</form>';
 
 
-<<<<<<< Updated upstream
   res.render('formTest', {myform: html, title: "Register" , user: user});
-=======
-  res.render('formTest', {myform: html, title: "Register" });
->>>>>>> Stashed changes
+
 
 });

@@ -9,7 +9,6 @@ var connection = mysql.createConnection({
   database: 'swiss',
 });
 var htmlH = "<outerdiv><div id = \"postContent \">";
-<<<<<<< Updated upstream
 var html = "check"
 var htmlL ="</div></outerdiv>"
 var sqlq = "SELECT * FROM Posts";
@@ -22,7 +21,7 @@ router.get('/', function(req, res, next) {
   if(req.user != undefined)
     user = req.user[0].User_Id;
   connection.query(sqlq, function(err, results) {
-    console.log(JSON.stringify(results));
+    // console.log(JSON.stringify(results));
   /*  resultVar = JSON.stringify(results);
     var lastChar = '\0';
     var inQuotes = false;
@@ -48,7 +47,9 @@ router.get('/', function(req, res, next) {
         // ,{"post_id":13,"content":"I am trying \"to\" {break} this 'post by putting : symbols \" that [ match other ] symbols","author_id":"wtf"}]
           //skip over post id, get to end of content
           html += "<table>"
-          while(resultVar[i] != ':' && resultVar[i-1] != '"' && resultVar[i-2] != 't'){
+          while(resultVar[i] != ':' && res  var user;
+  if(req.user != undefined)
+    user = req.user[0].User_Id;ultVar[i-1] != '"' && resultVar[i-2] != 't'){
             i++;
           }
           //in content now
@@ -69,13 +70,6 @@ router.get('/', function(req, res, next) {
         lastChar = resultVar[i];
     }*/
 
-    //close last div
-    html+="</div>";
-=======
-var html = ""
-var htmlL ="</div></outerdiv>"
-var sqlq = "SELECT * FROM Posts";
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
   connection.query(sqlq, function(err, results) {
@@ -91,9 +85,12 @@ router.get('/', function(req, res, next) {
         //html += "<div>" + JSON.stringify(JSONres[i]) + "</div>";
         lastChar = resultVar[i];
     }*/
->>>>>>> Stashed changes
-    var htmlFin = htmlH + html + htmlL;
-    console.log(html);
+
+    // html+="</div>";
+    // var htmlFin = htmlH + html + htmlL;
+    // console.log(html);
+    // console.log(user);
+    html = 0;
     res.render('index', {results: html, title: "Post Results", user: user});
   });
 //  res.render('index', { title: 'FED PROJECT',results: html });
