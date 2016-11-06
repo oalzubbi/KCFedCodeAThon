@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
   database: 'swiss',
 });
 var htmlH = "<outerdiv><div id = \"postContent \">";
-var html = ""
+var html = "check"
 var htmlL ="</div></outerdiv>"
 var sqlq = "SELECT * FROM Posts";
 
@@ -66,6 +66,8 @@ router.get('/', function(req, res, next) {
             html+="</div> <div class = \"content_" + (pageCount + 1) + "\" >"
       }
         lastChar = resultVar[i];
+    }*/
+
     }
     //close last div
     html+="</div>";
