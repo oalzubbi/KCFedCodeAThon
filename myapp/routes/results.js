@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
 });
 
 router.post('/', function(req, res){
-  var userName = req.body.userName;
+  var userName = req.body.userName; //if any of these is empty, redirect back to formTest and tell user!
   var pword = req.body.pword;
   var f_name = req.body.f_name;
   var l_name = req.body.l_name;

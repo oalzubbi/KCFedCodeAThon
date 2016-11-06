@@ -12,6 +12,8 @@ var geocoding_example = require('./routes/geocoding_example');
 var database = require('./routes/database');
 var formTest = require('./routes/formTest');
 var results = require('./routes/results');
+var login = require('./routes/login');
+var login_results = require('./routes/login_results');
 var app = express();
 
 // view engine setup
@@ -26,6 +28,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use("/login_results", login_results);
+app.use("/login", login);
 app.use("/results", results);
 app.use('/formTest', formTest);
 app.use('/', index);
