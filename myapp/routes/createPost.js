@@ -10,7 +10,7 @@ router.get('/', function(req, res){
                '<input type="text" name="userName" placeholder="bob" />' +
                '<br>' +
                'Enter your Post:' +
-               '<input type="text" name="post" placeholder="Hello" />' +
+               '<textarea name="post" rows="4" cols="50"> placeholder="Hello" </textarea>' +
                '<br>' +
                '<button type="submit">Submit</button>' +
             '</form>';
