@@ -11,6 +11,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes/index');
+var contact = require('./routes/contact');
 var index = require('./routes/index');
 var about = require('./routes/about');
 var userprofile = require('./routes/userprofile');
@@ -63,7 +64,7 @@ app.use('/about', about);
 app.use('/geocoding_example', geocoding_example);
 app.use('/database',database);
 app.use('/userprofile', userprofile);
-
+app.use('/contact',contact);
 
 require('./routes/passport')(passport); // pass passport for configuration
 
