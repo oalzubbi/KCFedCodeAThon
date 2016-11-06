@@ -26,6 +26,7 @@ router.post('/', function(req, res){
     else {
       //Login - what does that mean?
       console.log(JSON.stringify(results));
+      console.log(typeof userName);
       html = 'Welcome back!' + userName + "!\n";
     }
     res.render('login_results', {results: html, title: "Results" });
