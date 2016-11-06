@@ -48,12 +48,7 @@ router.get('/', function(req, res, next) {
           //skip over post id, get to end of content
           html += "<table>"
           while(resultVar[i] != ':' && res  var user;
-  if(req.user != undefined)
-    user = req.user[0].User_Id;ultVar[i-1] != '"' && resultVar[i-2] != 't'){
-            i++;
-          }
-          //in content now
-          if(resultVar[i] == '"'){
+  if(req.user != undefined)<<<<<<< HEAD
             html += "<tr>";
             html += "<td>";
             //add in content
@@ -71,9 +66,9 @@ router.get('/', function(req, res, next) {
     }*/
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  connection.query(sqlq, function(err, results) {
-    console.log(JSON.stringify(results));
+// router.get('/', function(req, res, next) {
+//   connection.query(sqlq, function(err, results) {
+//     console.log(JSON.stringify(results));
     /*resultVar = JSON.stringify(results);
     var lastChar = '\0';
     var inQuotes = false;
