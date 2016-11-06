@@ -4,12 +4,8 @@
   <% include templates/header.ejs %>
   <body>
     <h1><%= title %></h1>
-    <div id="fed-jumbo" class="jumbotron">
-      <div class="container">
-      <p>Welcome to <%= title %></p>
-      <%console.log(name)%>
-      <p>Username - <%=name%></p>
-      </div>
+    <div class="container">
+      <p><%- results %></p>
     </div>
   </body>
 </html>

@@ -9,49 +9,18 @@ var connection = mysql.createConnection({
   database: 'swiss',
 });
 
-
-/*
- * body-parser is a piece of express middleware that
- *   reads a form's input and stores it as a javascript
- *   object accessible through `req.body`
- *
- * 'body-parser' must be installed (via `npm install --save body-parser`)
- * For more info see: https://github.com/expressjs/body-parser
- */
-var bodyParser = require('body-parser');
-
-
-
-// This route receives the posted form.
-// As explained above, usage of 'body-parser' means
-// that `req.body` will be filled in with the form elements
 router.post('/', function(req, res){
-  console.log("POOOOOOSTED");
   var userName = req.body.userName;
+  var pword = req.body.pword;
   var f_name = req.body.f_name;
   var l_name = req.body.l_name;
   var bio = req.body.bio;
   var city = req.body.city;
   var state = req.body.state;
   var html = "";
-  // <!DOCTYPE html>
-  // <html>
-  //   <% include templates/header.ejs %>
-  //   <body>
-  //     <h1><%= title %></h1>
-  //     <div id="fed-jumbo" class="jumbotron">
-  //       <div class="container">
-  //       <p>Welcome to <%= title %></p>';
-  console.log(userName + "\n");
-  // connection.connect();
-  var sql2 = 'INSERT INTO Users (User_Id, LastName, FirstName, Karma, Verified, Bio, Location) VALUES (\'' + userName + '\',\'' + l_name + '\', \'' + f_name + '\', \'0\' , \'0\' , \'' + bio + '\', \'' + (city + state) + '\')';
+  var sql2 = 'INSERT INTO Users (User_Id, LastName, FirstName, Karma, Verified, Bio, Location, PassWord) VALUES (\'' + userName + '\',\'' + l_name + '\', \'' + f_name + '\', \'0\' , \'0\' , \'' + bio + '\', \'' + (city + state) + '\', \'' + pword + '\')';
   var checkUser = "SELECT * FROM Users WHERE User_Id = " + "\'" + userName + "\'"
-  console.log(sql2);
-  console.log(checkUser)
-  var numRows = 0;
-  console.log("1numrows = " + numRows);
   connection.query(checkUser, function(err, results) {
-    console.log(results.length);
     if(results.length > 0)
     {
       html = 'Sorry, ' + f_name + ', the Username ' + userName + " is already taken by another user!\n";
@@ -64,35 +33,7 @@ router.post('/', function(req, res){
                  '<a href="/"></a>';
       console.log("\n\nDoesn't exists!\n\n");
     }
-    res.send(html);
+    res.render('results', {results: html, title: "Results" });
   });
-});
-
-// A browser's default method is 'GET', so this
-// is the route that express uses when we visit
-// our site initially.
-router.get('/', function(req, res){
-  // The form's action is '/' and its method is 'POST',
-  // so the `app.post('/', ...` route will receive the
-  // result of our form
-  var m_rows = 0;
-  var userName = 0;
-  // var userName = req.body.userName;
-  var html = '<form action="/results" method="post">' +
-               'Enter your name:' +
-               '<input type="text" name="userName" placeholder="..." />' +
-               '<br>' +
-               '<button type="submit">Submit</button>' +
-            '</form>';
-  // connection.connect();
-  var sql = 'SELECT * from Test';
-  var sql2 = 'INSERT INTO Test (value_1) VALUES(' + userName + ')';
-  connection.query(sql, function(err, rows) {
-     if (err) throw err;
-     console.log("ROWOOWOWOWOWOW");
-    //  res.render('database', { title: 'database', rows: string });
-  });
-  // connection.end();
-  res.send(html);
 });
 module.exports = router;
