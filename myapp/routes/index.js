@@ -3,7 +3,10 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'FED PROJECT' });
+  var user;
+  if(req.user != undefined)
+    user = req.user[0].User_Id;
+  res.render('index', { title: 'FED PROJECT', user: user });
 });
 
 module.exports = router;

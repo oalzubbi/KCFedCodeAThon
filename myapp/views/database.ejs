@@ -1,10 +1,19 @@
 <html>
-<h1> <% include templates/header.ejs %> </h1>
+<h1> <%- include('templates/header.ejs', {user: user}) %> </h1>
 
 <title>
 <%= title%>
 </title>
 <body>
 <%= rows%>
+<h2>Loop</h2>
+<ul>
+    <% drinks.forEach(function(drink) { %>
+        <li><%= drink.name %> - <%= drink.drunkness %></li>
+    <% }); %>
+</ul>
+<ul>
+  <%= user %>
+</ul>
 </body>
 </html>

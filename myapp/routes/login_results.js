@@ -39,11 +39,14 @@ var connection = mysql.createConnection({
             failureRedirect : '/login'
 		}),
         function(req, res) {
+            var user;
+            if(req.user != undefined)
+              user = req.user[0].User_Id;
             if (req.body.remember) {
               req.session.cookie.maxAge = 1000 * 60 * 3;
             } else {
               req.session.cookie.expires = false;
             }
-        res.redirect('/');
+        res.redirect('/', { user: user});
     });
 module.exports = router;

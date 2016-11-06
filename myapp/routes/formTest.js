@@ -5,7 +5,9 @@ var router = express.Router();
 module.exports = router;
 
 router.get('/', function(req, res){
-
+  var user;
+  if(req.user != undefined)
+    user = req.user[0].User_Id;
   var html = '<form action="/results" method="post">' +
                'Enter your Username:' +
                '<input type="text" name="username" placeholder="bob" />' +
@@ -32,6 +34,6 @@ router.get('/', function(req, res){
             '</form>';
 
 
-  res.render('formTest', {myform: html, title: "Register" });
+  res.render('formTest', {myform: html, title: "Register" , user: user});
 
 });
