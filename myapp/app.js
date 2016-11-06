@@ -22,6 +22,8 @@ var login = require('./routes/login');
 var login_results = require('./routes/login_results');
 var createPost = require('./routes/createPost');
 var post_results = require('./routes/post_results');
+var comment = require('./routes/comment');
+var cmt_results = require('./routes/cmt_results');
 var app = express();
 
 
@@ -47,12 +49,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use("/comment", comment);
 app.use("/post_results", post_results);
 app.use("/createPost", createPost);
 app.use("/login_results", login_results);
 app.use("/login", login);
 app.use("/results", results);
+app.use("/cmt_results",cmt_results);
 app.use('/formTest', formTest);
 app.use('/', index);
 app.use('/users', users);
