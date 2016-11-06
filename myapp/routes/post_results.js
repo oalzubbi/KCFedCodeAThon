@@ -9,24 +9,26 @@ var connection = mysql.createConnection({
   database: 'swiss',
 });
 router.post('/', function(req, res){
-  var userName = req.session.userName; //if any of these is empty, redirect back to formTest and tell user!
+  //var userName = req.session.userName; //if any of these is empty, redirect back to formTest and tell user!
+  var userName = req.body.userName;
   var post = req.body.post;
   var html = "";
-  var sql2 = 'INSERT into POSTS (User_Id, Post) WHERE VALUES (\'' + userName + '\',\'' + pword + '\')';
-  connection.query(checkUser, function(err, results) {
-    if(results.length > 0)
-    {
-      html = 'Sorry, ' + f_name + ', the Username ' + userName + " is already taken by another user!\n";
-      console.log("\n\nAlready exist!\n\n");
-    }
-    else {
-      connection.query(sql2, function(err, rows, fields) {});
-      html = 'Hello, ' + f_name + '!.<br>' +
-                 'Your username is ' + userName + '.<br>' +
-                 '<a href="/"></a>';
-      console.log("\n\nDoesn't exists!\n\n");
-    }
-    res.render('results', {results: html, title: "Results" });
+
+  //STEPHEN: We need to make the POSTS table ordered by the auto incrementing integer ID Key instead of by User.
+  // If a single user has more than one Post, then their post will get over written by your sql2 below.  Also, this is all
+  // kinds of not working at the moment. Not too much to fix, it's just completely broken because I want you to redo the db
+  // first.
+
+  var checkUser = "SELECT * FROM Users WHERE User_Id = " + "\'" + userName + "\'";
+  var sql2 = 'INSERT INTO Posts (post_id, author_id, content) VALUES ( NULL, \'' + userName + '\',\'' + post + '\')';
+  console.log(checkUser);
+  console.log(sql2);
+  // console.log(sql3);
+  connection.query(sql2, function(err, results) {
+    console.log(JSON.stringify(results));
+    html = "Post created!\n";
+    res.render('post_results', {results: html, title: "Post Results" });
   });
 });
+
 module.exports = router;

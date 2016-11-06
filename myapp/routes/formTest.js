@@ -7,16 +7,16 @@ router.get('/', function(req, res){
 
   var html = '<form action="/results" method="post">' +
                'Enter your Username:' +
-               '<input type="text" name="userName" placeholder="bob" />' +
+               '<input type="text" name="username" placeholder="bob" />' +
                '<br>' +
                'Enter your Password:' +
-               '<input type="text" name="pword" placeholder="..." />' +
+               '<input type="text" name="password" placeholder="..." />' +
                '<br>' +
                'Enter your First Name:' +
-               '<input type="text" name="f_name" placeholder="Bob" />' +
+               '<input type="text" name="FirstName" placeholder="Bob" />' +
                '<br>' +
                'Enter your Last Name:' +
-               '<input type="text" name="l_name" placeholder="Smith" />' +
+               '<input type="text" name="LastName" placeholder="Smith" />' +
                '<br>' +
                'Enter your Bio:' +
                '<input type="text" name="bio" placeholder="Hello" />' +
