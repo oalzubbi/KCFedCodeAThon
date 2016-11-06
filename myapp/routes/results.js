@@ -33,25 +33,37 @@ router.post('/', function(req, res){
   var bio = req.body.bio;
   var city = req.body.city;
   var state = req.body.state;
+  var html = "";
+  // <!DOCTYPE html>
+  // <html>
+  //   <% include templates/header.ejs %>
+  //   <body>
+  //     <h1><%= title %></h1>
+  //     <div id="fed-jumbo" class="jumbotron">
+  //       <div class="container">
+  //       <p>Welcome to <%= title %></p>';
   console.log(userName + "\n");
-  connection.connect();
+  // connection.connect();
   var sql2 = 'INSERT INTO Users (User_Id, LastName, FirstName, Karma, Verified, Bio, Location) VALUES (\'' + userName + '\',\'' + l_name + '\', \'' + f_name + '\', \'0\' , \'0\' , \'' + bio + '\', \'' + (city + state) + '\')';
+  var checkUser = "SELECT * FROM Users WHERE User_Id = " + "\'" + userName + "\'"
   console.log(sql2);
+  console.log(checkUser)
+  // console.log(connection.query(checkUser));
   if(connection.query(sql2, function(err, rows, fields) {
      var string = JSON.stringify(rows)
     //  if (err) throw err;
      console.log("ROWOOWOWOWOWOW");
   }) == true)
   {
-    var html = 'Hello, ' + f_name + '!.<br>' +
+    html = 'Hello, ' + f_name + '!.<br>' +
                'Your username is ' + userName + '.<br>' +
                '<a href="/"></a>';
-    res.send(html);
   }
   else {
-    var html = 'Sorry, ' + f_name + ', the Username ' + userName + " is already taken by another user!\n";
-    res.send(html);
+    html = 'Sorry, ' + f_name + ', the Username ' + userName + " is already taken by another user!\n";
   }
+  // connection.end();
+  res.send(html);
 });
 
 // A browser's default method is 'GET', so this
@@ -70,7 +82,7 @@ router.get('/', function(req, res){
                '<br>' +
                '<button type="submit">Submit</button>' +
             '</form>';
-  connection.connect();
+  // connection.connect();
   var sql = 'SELECT * from Test';
   var sql2 = 'INSERT INTO Test (value_1) VALUES(' + userName + ')';
   connection.query(sql, function(err, rows) {
@@ -78,6 +90,7 @@ router.get('/', function(req, res){
      console.log("ROWOOWOWOWOWOW");
     //  res.render('database', { title: 'database', rows: string });
   });
+  // connection.end();
   res.send(html);
 });
 module.exports = router;

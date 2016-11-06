@@ -66,7 +66,7 @@ router.get('/', function(req, res){
                '<br>' +
                '<button type="submit">Submit</button>' +
             '</form>';
-  connection.connect();
+  // connection.connect();
   var sql = 'SELECT * from Test';
   // var sql2 = 'INSERT INTO Users (User_Id, LastName, FirstName, Karma, Verified, Bio, Location) VALUES (' + userName + ',' + l_name + ', ' + f_name + ', ' + 0 + ', ' + 0 + ', ' + bio + ', ' + city + ')';
   connection.query(sql, function(err, rows, fields) {
@@ -77,5 +77,6 @@ router.get('/', function(req, res){
     //  res.render('database', { title: 'database', rows: string });
   });
   console.log("Goodbye " + userName);
+  // connection.end();
   res.send(html);
 });
