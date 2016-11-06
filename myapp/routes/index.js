@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
   database: 'swiss',
 });
 var htmlH = "<outerdiv><div id = \"postContent \">";
-var html = ""
+var html = "check"
 var htmlL ="</div></outerdiv>"
 var sqlq = "SELECT * FROM Posts";
 
@@ -28,9 +28,9 @@ router.get('/', function(req, res, next) {
         //html += "<div>" + JSON.stringify(JSONres[i]) + "</div>";
         lastChar = resultVar[i];
     }*/
-    var htmlFin = htmlH + html + htmlL;
-    console.log(html);
-    res.render('post_results', {results: html, title: "Post Results" });
+    var htmlFin = "";
+    htmlFin += htmlH + html + htmlL;
+    res.render('index', {results: htmlFin, title: "Post Results" });
   });
 //  res.render('index', { title: 'FED PROJECT',results: html });
 });
