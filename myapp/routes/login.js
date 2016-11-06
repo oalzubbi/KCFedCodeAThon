@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-module.exports = router;
 
 router.get('/', isLoggedIn, function(req, res){
-
+  var user;
+  if(req.user != undefined)
+    user = req.user[0].User_Id;
   var html = '<form action="/login_results" method="post">' +
                'Enter your Username:' +
                '<input type="text" name="username" placeholder="bob" />' +
@@ -14,7 +15,7 @@ router.get('/', isLoggedIn, function(req, res){
                '<br>' +
                '<button type="submit">Submit</button>' +
             '</form>';
-  res.render('login', {myform: html, title: "Login" });
+  res.render('login', {myform: html, title: "Login", user: user});
 
 });
 
@@ -22,9 +23,16 @@ router.get('/', isLoggedIn, function(req, res){
 function isLoggedIn(req, res, next) {
 
 	// if user is authenticated in the session, carry on
-	if (!req.isAuthenticated())
+	if (!req.isAuthenticated()) {
 		return next();
+  }
+  var user;
+  if(req.user != undefined)
+    user = req.user[0].User_Id;
 
 	// if they aren't redirect them to the home page
-	res.redirect('/');
+res.render('index', {title: "FED PROJECT", user: user});
+  window.alert("You are already logged in.")
 }
+
+module.exports = router;

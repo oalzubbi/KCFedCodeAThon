@@ -14,20 +14,15 @@ router.post('/', function(req, res){
   var post = req.body.post;
   var html = "";
 
-  //STEPHEN: We need to make the POSTS table ordered by the auto incrementing integer ID Key instead of by User.
-  // If a single user has more than one Post, then their post will get over written by your sql2 below.  Also, this is all
-  // kinds of not working at the moment. Not too much to fix, it's just completely broken because I want you to redo the db
-  // first.
-
   var checkUser = "SELECT * FROM Users WHERE User_Id = " + "\'" + userName + "\'";
-  var sql2 = 'INSERT INTO Posts (post_id, author_id, content) VALUES ( NULL, \'' + userName + '\',\'' + post + '\')';
+  var sql2 = 'INSERT INTO Posts (post_id, author_id, content, internet_points) VALUES (NULL,\'' + userName + '\',\'' + post + '\', \'0\')';
   console.log(checkUser);
   console.log(sql2);
   // console.log(sql3);
   connection.query(sql2, function(err, results) {
     console.log(JSON.stringify(results));
     html = "Post created!\n";
-    res.render('post_results', {results: html, title: "Post Results" });
+    res.render('post_results', {results: html, title: "Post Results" , user: 'polygon'});
   });
 });
 
