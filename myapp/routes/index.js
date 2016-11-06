@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
   database: 'swiss',
 });
 var htmlH = "<outerdiv><div id = \"postContent \">";
-var html = ""
+var html = "check"
 var htmlL ="</div></outerdiv>"
 var sqlq = "SELECT * FROM Posts";
 
@@ -17,6 +17,9 @@ var sqlq = "SELECT * FROM Posts";
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  var user;
+  if(req.user != undefined)
+    user = req.user[0].User_Id;
   connection.query(sqlq, function(err, results) {
     console.log(JSON.stringify(results));
   /*  resultVar = JSON.stringify(results);
@@ -63,12 +66,14 @@ router.get('/', function(req, res, next) {
             html+="</div> <div class = \"content_" + (pageCount + 1) + "\" >"
       }
         lastChar = resultVar[i];
+    }*/
+
     }
     //close last div
     html+="</div>";
     var htmlFin = htmlH + html + htmlL;
     console.log(html);*/
-    res.render('post_results', {results: html, title: "Post Results" });
+    res.render('post_results', {results: html, title: "Post Results", user: user});
   });
 //  res.render('index', { title: 'FED PROJECT',results: html });
 });

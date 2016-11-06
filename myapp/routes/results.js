@@ -42,7 +42,10 @@ router.post('/', passport.authenticate('local-signup', {
   successRedirect : '/',
   failureRedirect : '/formTest'
 }),    function(req, res) {
-        res.redirect('/');
+        var user;
+        if(req.user != undefined)
+          user = req.user[0].User_Id;
+        res.redirect('/', {user: user});
 });
 
 module.exports = router;

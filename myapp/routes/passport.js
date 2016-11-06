@@ -46,11 +46,9 @@ module.exports = function(passport) {
                 } else {
                     var newUserMysql = {
                         username: username,
-                        password: bcrypt.hashSync(password, null, null)  // use the generateHash function in our user model
+                        password: bcrypt.hashSync(password, null, null)
                     };
-                    // Geocoding
                     geocoder.geocode(city + ', ' + state, function ( err, data ) {
-                      // do something with data
                         var insertQuery = 'INSERT INTO Users (User_Id, LastName, FirstName, Karma, Verified, Bio, Location, PassWord) VALUES (\'' + newUserMysql.username + '\',\'' + LastName + '\', \'' + FirstName + '\', \'0\' , \'0\' , \'' + bio + '\', \'' + data.results[0] + '\', \'' + newUserMysql.password + '\')';
                         connection.query(insertQuery,function(err, results) {
                             return done(null, newUserMysql);

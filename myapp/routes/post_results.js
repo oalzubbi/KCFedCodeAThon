@@ -22,7 +22,7 @@ router.post('/', function(req, res){
   connection.query(sql2, function(err, results) {
     console.log(JSON.stringify(results));
     html = "Post created!\n";
-    res.render('post_results', {results: html, title: "Post Results" });
+    res.render('post_results', {results: html, title: "Post Results" , user: 'polygon'});
   });
 });
 
