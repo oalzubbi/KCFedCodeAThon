@@ -69,7 +69,6 @@ router.get('/', function(req, res, next) {
         lastChar = resultVar[i];
     }*/
 
-    }
     //close last div
     html+="</div>";
 =======
@@ -94,8 +93,8 @@ router.get('/', function(req, res, next) {
     }*/
 >>>>>>> Stashed changes
     var htmlFin = htmlH + html + htmlL;
-    console.log(html);*/
-    res.render('post_results', {results: html, title: "Post Results", user: user});
+    console.log(html);
+    res.render('index', {results: html, title: "Post Results", user: user});
   });
 //  res.render('index', { title: 'FED PROJECT',results: html });
 });
