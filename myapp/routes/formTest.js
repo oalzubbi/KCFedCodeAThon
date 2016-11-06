@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+
 module.exports = router;
 
 router.get('/', function(req, res){
@@ -29,6 +30,8 @@ router.get('/', function(req, res){
                '<br>' +
                '<button type="submit">Submit</button>' +
             '</form>';
+
+
   res.render('formTest', {myform: html, title: "Register" });
 
 });
