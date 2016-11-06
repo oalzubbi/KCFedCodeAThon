@@ -10,14 +10,28 @@ var connection = mysql.createConnection({
 });
 router.get('/', function(req, res, next) {
   var user;
-  if(req.user != undefined)
-    user = req.user[0].User_Id;
-    var sqlq = "SELECT  FROM Users WHERE User_Id = " + "\'" + user + "\'";
+  if(req.user != undefined){
+    user = req.user[0].User_Id;}
+    var sqlq = "SELECT * FROM Users WHERE User_Id = " + "\'" + user + "\'";
     console.log(sqlq);
     connection.query(sqlq, function(err, results) {
       console.log(JSON.stringify(results));
       console.log(sqlq);
-      res.render('Profile/userprofile', { title: "Profile", user: user });
+      console.log(results[0].User_Id);
+      console.log(results[0].LastName);
+      console.log(results[0].Location);
+      console.log(results[0].FirstName);
+      console.log(results[0].Karma);
+      console.log(results[0].Bio);
+      res.render('Profile/userprofile', { title: "Profile",
+                                           user:        results[0].User_Id,
+                                           LastName:    results[0].LastName,
+                                           FirstName:   results[0].FirstName,
+                                           Location:    results[0].Location,
+                                           Karma:       results[0].Karma,
+                                           Verified:    results[0].Verified,
+                                           Bio:         results[0].Bio
+                                        });
     });
 });
 
