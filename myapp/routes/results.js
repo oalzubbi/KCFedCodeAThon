@@ -9,7 +9,6 @@ var connection = mysql.createConnection({
   database: 'swiss',
 });
 
-module.exports = router;
 
 /*
  * body-parser is a piece of express middleware that
@@ -34,19 +33,25 @@ router.post('/', function(req, res){
   var bio = req.body.bio;
   var city = req.body.city;
   var state = req.body.state;
-  var html = 'Hello: ' + userName + '.<br>' +
-             '<a href="/">Try again.</a>';
   console.log(userName + "\n");
   connection.connect();
   var sql2 = 'INSERT INTO Users (User_Id, LastName, FirstName, Karma, Verified, Bio, Location) VALUES (\'' + userName + '\',\'' + l_name + '\', \'' + f_name + '\', \'0\' , \'0\' , \'' + bio + '\', \'' + (city + state) + '\')';
   console.log(sql2);
-  connection.query(sql2, function(err, rows, fields) {
+  if(connection.query(sql2, function(err, rows, fields) {
      var string = JSON.stringify(rows)
-     if (err) throw err;
+    //  if (err) throw err;
      console.log("ROWOOWOWOWOWOW");
-    //  res.render('database', { title: 'database', rows: string });
-  });
-  res.send(html);
+  }) == true)
+  {
+    var html = 'Hello, ' + f_name + '!.<br>' +
+               'Your username is ' + userName + '.<br>' +
+               '<a href="/"></a>';
+    res.send(html);
+  }
+  else {
+    var html = 'Sorry, ' + f_name + ', the Username ' + userName + " is already taken by another user!\n";
+    res.send(html);
+  }
 });
 
 // A browser's default method is 'GET', so this
@@ -75,3 +80,4 @@ router.get('/', function(req, res){
   });
   res.send(html);
 });
+module.exports = router;

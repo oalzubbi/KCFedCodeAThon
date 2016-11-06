@@ -11,7 +11,7 @@ var connection = mysql.createConnection({
 });
 
 
-var sql = 'SELECT * from Test';
+var sql = 'SELECT * from Users';
 connection.connect();
 router.get('/', function(req, res, next) {
   connection.query(sql, function(err, rows, fields) {

@@ -51,12 +51,13 @@
       var loc1;
       var loc2;
       var address2 = "Lawrence, KS";
-      loc1 = geocoder.geocode({'address': address}, function(results, status) {
+      geocoder.geocode({'address': address}, function(results, status) {
         	results1 = results[0];
-          var location = results1.geometry.location;
-          alert(JSON.stringify(location));
-          return 3;
+          var loc1 = results1.geometry.location;
+          alert(JSON.stringify(loc1));
+          alert(JSON.stringify("1" + loc1));
       });
+      alert(JSON.stringify(loc1));
       alert(loc1);
       geocoder.geocode({'address': address2}, function(results, status) {
         if (status === 'OK') {
@@ -70,8 +71,8 @@
       // alert("Topeka = " + loc1);
       // alert("Lawrence = " + loc2);
       // var distance;
-      // distance = 0.000621371*google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2);
-     // 	alert(distance + " Miles");
+      distance = 0.000621371*google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2);
+     	alert(distance + " Miles");
 
     }
 
