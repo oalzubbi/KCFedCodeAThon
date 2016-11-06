@@ -48,3 +48,83 @@ body {
 a {
   color: #00B7FF;
 }
+#quickTake{
+    background: #C4D2E2;
+
+}
+
+#profilePicture{
+
+}
+
+#profilePicture img {
+  height: 175;
+  width: 175;
+  float: left;
+
+}
+#userName{
+
+}
+
+#topBadges{
+
+}
+#topBadges img {
+
+}
+
+#name{
+
+}
+
+#city{
+
+}
+
+#memberSince{
+
+}
+
+#topAffiliates{
+
+}
+
+#topInterests{
+
+}
+
+#miniFeed{
+  background-color: HSL(59, 62%, 70%);
+}
+
+#bio{
+
+  background-color: HSL(355, 100%, 80%);
+
+}
+
+#description{
+
+}
+
+#contactInfo{
+
+}
+
+#experience{
+
+  background-color: HSL(181, 86%, 80%);
+}
+
+#skillsAndInterests{
+  background-color: HSL(213, 34%, 70%);
+}
+
+#skills{
+
+}
+
+#interests{
+
+}

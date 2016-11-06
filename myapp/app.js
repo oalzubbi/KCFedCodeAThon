@@ -8,6 +8,7 @@ var routes = require('./routes/index');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var about = require('./routes/about');
+var userprofile = require('./routes/userprofile');
 var geocoding_example = require('./routes/geocoding_example');
 var database = require('./routes/database');
 var formTest = require('./routes/formTest');
@@ -26,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use("/results", results);
+app.use('/results', results);
 app.use('/formTest', formTest);
 app.use('/', index);
 app.use('/users', users);
@@ -34,6 +35,7 @@ app.use('/', routes);
 app.use('/about', about);
 app.use('/geocoding_example', geocoding_example);
 app.use('/database',database);
+app.use('/userprofile', userprofile);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
