@@ -13,11 +13,18 @@
     <li><a href="/">Home</a></li>
     <li><a href="/about">About us</a></li>
     <li><a href="/contact">Contact us</a></li>
+    <li><a href="/formTest">Register</a></li>
+    <li><a href="/login">Login</a></li>
     <li><a href ="/geocoding_example">Geocoding Example</a></li>
+    <li><a href ="/database">Database</a></li>
+    <% if(user != undefined){ %>
+      <li><a href ="/userprofile"><%= user %>'s Profile</a></li>
+    <% }%>
   </ul>
 </nav>
 
 <!-- citation: http://stackoverflow.com/questions/35427641/how-to-dynamically-set-the-active-class-in-bootstrap-navbar?rq=1 -->
+
 <script type="text/javascript">
     $(document).ready(function () {
         var url = window.location;
@@ -26,4 +33,25 @@
              return this.href == url;
         }).parent().addClass('active');
     });
+</script>
+
+<script>
+
+//From Facebook.com
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : 'your-app-id',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
 </script>

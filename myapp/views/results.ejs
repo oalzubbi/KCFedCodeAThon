@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <%= name %>
-  <p>Stuff</p>
+
+  <% include templates/header.ejs %>
+  <body>
+    <h1><%= title %></h1>
+    <div class="container">
+      <p><%- results %></p>
+    </div>
+  </body>
 </html>

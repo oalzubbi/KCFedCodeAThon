@@ -1,43 +1,47 @@
 var express = require('express');
 var router = express.Router();
 
+
 module.exports = router;
 
-/*
- * body-parser is a piece of express middleware that
- *   reads a form's input and stores it as a javascript
- *   object accessible through `req.body`
- *
- * 'body-parser' must be installed (via `npm install --save body-parser`)
- * For more info see: https://github.com/expressjs/body-parser
- */
-var bodyParser = require('body-parser');
-
-// A browser's default method is 'GET', so this
-// is the route that express uses when we visit
-// our site initially.
 router.get('/', function(req, res){
-  // The form's action is '/' and its method is 'POST',
-  // so the `app.post('/', ...` route will receive the
-  // result of our form
+<<<<<<< Updated upstream
+  var user;
+  if(req.user != undefined)
+    user = req.user[0].User_Id;
+=======
+
+>>>>>>> Stashed changes
   var html = '<form action="/results" method="post">' +
-               'Enter your name:' +
-               '<input type="text" name="userName" placeholder="..." />' +
+               'Enter your Username:' +
+               '<input type="text" name="username" placeholder="bob" />' +
+               '<br>' +
+               'Enter your Password:' +
+               '<input type="text" name="password" placeholder="..." />' +
+               '<br>' +
+               'Enter your First Name:' +
+               '<input type="text" name="FirstName" placeholder="Bob" />' +
+               '<br>' +
+               'Enter your Last Name:' +
+               '<input type="text" name="LastName" placeholder="Smith" />' +
+               '<br>' +
+               'Enter your Bio:' +
+               '<input type="text" name="bio" placeholder="Hello" />' +
+               '<br>' +
+               'Enter your City:' +
+               '<input type="text" name="city" placeholder="Lawrence" />' +
+               '<br>' +
+               'Enter your State Initials:' +
+               '<input type="text" name="state" placeholder="KS" />' +
                '<br>' +
                '<button type="submit">Submit</button>' +
             '</form>';
-  console.log(html);
-  res.send(html);
-});
 
-// This route receives the posted form.
-// As explained above, usage of 'body-parser' means
-// that `req.body` will be filled in with the form elements
-router.post('/', function(req, res){
-  console.log("POOOOOOSTED");
-  var userName = req.body.userName;
-  var html = 'Hello: ' + userName + '.<br>' +
-             '<a href="/">Try again.</a>';
-  console.log(html);
-  res.send(html);
+
+<<<<<<< Updated upstream
+  res.render('formTest', {myform: html, title: "Register" , user: user});
+=======
+  res.render('formTest', {myform: html, title: "Register" });
+>>>>>>> Stashed changes
+
 });

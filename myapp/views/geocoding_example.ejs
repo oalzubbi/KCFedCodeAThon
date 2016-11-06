@@ -35,12 +35,7 @@
     var results1;
     var results2;
     function initMap() {
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
-        center: {lat: -34.397, lng: 150.644}
-      });
       var geocoder = new google.maps.Geocoder();
-
       document.getElementById('submit').addEventListener('click', function() {
         geocodeAddress(geocoder);
       });
@@ -51,26 +46,23 @@
       var loc1;
       var loc2;
       var address2 = "Lawrence, KS";
-      loc1 = geocoder.geocode({'address': address}, function(results, status) {
+      geocoder.geocode({'address': address}, function(results, status) {
         	results1 = results[0];
-          var location = results1.geometry.location;
-          return loc1;
+          var loc1 = results1.geometry.location;
+          geocoder.geocode({'address': address2}, function(results, status) {
+            if (status === 'OK') {
+              results2 = results[0];
+              loc2 = results2.geometry.location;
+              alert(results2.place_id);
+              distance = google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2);
+              alert("Location 1 Coords: " + loc1);
+              alert("Location 2 Coords: " + loc2);
+             	alert("The Distance from location 1 to location 2 is = " + distance + " KMs");
+            } else {
+              alert('Geocode was not successful for the following reason: ' + status);
+            }
+          });
       });
-      alert(typeof loc1);
-      geocoder.geocode({'address': address2}, function(results, status) {
-        if (status === 'OK') {
-        	results2 = results[0];
-        } else {
-          alert('Geocode was not successful for the following reason: ' + status);
-        }
-      });
-      // loc1 = results1.geometry.location;
-      // loc2 = results2.geometry.location;
-      // alert("Topeka = " + loc1);
-      // alert("Lawrence = " + loc2);
-      // var distance;
-      // distance = 0.000621371*google.maps.geometry.spherical.computeDistanceBetween(loc1, loc2);
-     // 	alert(distance + " Miles");
 
     }
 

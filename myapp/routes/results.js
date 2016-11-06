@@ -1,44 +1,55 @@
 var express = require('express');
 var router = express.Router();
+mysql = require('mysql');
+passport = require('passport');
+
+var connection = mysql.createConnection({
+  host: 'mysql.eecs.ku.edu',
+  user: 'swiss',
+  password: 'Password123!',
+  database: 'swiss',
+});
+
+// router.post('/', function(req, res){
+//   var userName = req.body.userName; //if any of these is empty, redirect back to formTest and tell user!
+//   var pword = req.body.pword;
+//   var f_name = req.body.f_name;
+//   var l_name = req.body.l_name;
+//   var bio = req.body.bio;
+//   var city = req.body.city;
+//   var state = req.body.state;
+//   var html = "";
+//   var sql2 = 'INSERT INTO Users (User_Id, LastName, FirstName, Karma, Verified, Bio, Location, PassWord) VALUES (\'' + userName + '\',\'' + l_name + '\', \'' + f_name + '\', \'0\' , \'0\' , \'' + bio + '\', \'' + (city + state) + '\', \'' + pword + '\')';
+//   var checkUser = "SELECT * FROM Users WHERE User_Id = " + "\'" + userName + "\'"
+//   connection.query(checkUser, function(err, results) {
+//     if(results.length > 0)
+//     {
+//       html = 'Sorry, ' + f_name + ', the Username ' + userName + " is already taken by another user!\n";
+//       console.log("\n\nAlready exist!\n\n");
+//     }
+//     else {
+//       connection.query(sql2, function(err, rows, fields) {});
+//       html = 'Hello, ' + f_name + '!.<br>' +
+//                  'Your username is ' + userName + '.<br>' +
+//                  '<a href="/"></a>';
+//       console.log("\n\nDoesn't exists!\n\n");
+//     }
+//     res.render('results', {results: html, title: "Results" });
+//   });
+// });
+
+router.post('/', passport.authenticate('local-signup', {
+  successRedirect : '/',
+  failureRedirect : '/formTest'
+}),    function(req, res) {
+<<<<<<< Updated upstream
+        var user;
+        if(req.user != undefined)
+          user = req.user[0].User_Id;
+        res.redirect('/', {user: user});
+=======
+        res.redirect('/');
+>>>>>>> Stashed changes
+});
 
 module.exports = router;
-
-/*
- * body-parser is a piece of express middleware that
- *   reads a form's input and stores it as a javascript
- *   object accessible through `req.body`
- *
- * 'body-parser' must be installed (via `npm install --save body-parser`)
- * For more info see: https://github.com/expressjs/body-parser
- */
-var bodyParser = require('body-parser');
-
-// A browser's default method is 'GET', so this
-// is the route that express uses when we visit
-// our site initially.
-router.get('/', function(req, res){
-  // The form's action is '/' and its method is 'POST',
-  // so the `app.post('/', ...` route will receive the
-  // result of our form
-  var html = '<form action="/results" method="post">' +
-               'Enter your name:' +
-               '<input type="text" name="userName" placeholder="..." />' +
-               '<br>' +
-               '<button type="submit">Submit</button>' +
-            '</form>';
-  console.log(html);
-  res.send(html);
-
-});
-
-// This route receives the posted form.
-// As explained above, usage of 'body-parser' means
-// that `req.body` will be filled in with the form elements
-router.post('/', function(req, res){
-  console.log("POOOOOOSTED");
-  var userName = req.body.userName;
-  var html = 'Hello: ' + userName + '.<br>' +
-             '<a href="/">Try again.</a>';
-  console.log(html);
-  res.send(html);
-});
