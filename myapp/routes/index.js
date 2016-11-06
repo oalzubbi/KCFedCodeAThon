@@ -20,7 +20,6 @@ router.get('/', function(req, res, next) {
   var user;
   if(req.user != undefined)
     user = req.user[0].User_Id;
-  res.render('index', { title: 'FED PROJECT', user: user });
   connection.query(sqlq, function(err, results) {
     console.log(JSON.stringify(results));
   /*  resultVar = JSON.stringify(results);
@@ -72,7 +71,7 @@ router.get('/', function(req, res, next) {
     html+="</div>";
     var htmlFin = htmlH + html + htmlL;
     console.log(html);*/
-    res.render('post_results', {results: html, title: "Post Results" });
+    res.render('post_results', {results: html, title: "Post Results", user: user});
   });
 //  res.render('index', { title: 'FED PROJECT',results: html });
 });
