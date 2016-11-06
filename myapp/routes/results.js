@@ -48,22 +48,24 @@ router.post('/', function(req, res){
   var checkUser = "SELECT * FROM Users WHERE User_Id = " + "\'" + userName + "\'"
   console.log(sql2);
   console.log(checkUser)
-  // console.log(connection.query(checkUser));
-  if(connection.query(sql2, function(err, rows, fields) {
-     var string = JSON.stringify(rows)
-    //  if (err) throw err;
-     console.log("ROWOOWOWOWOWOW");
-  }) == true)
-  {
-    html = 'Hello, ' + f_name + '!.<br>' +
-               'Your username is ' + userName + '.<br>' +
-               '<a href="/"></a>';
-  }
-  else {
-    html = 'Sorry, ' + f_name + ', the Username ' + userName + " is already taken by another user!\n";
-  }
-  // connection.end();
-  res.send(html);
+  var numRows = 0;
+  console.log("1numrows = " + numRows);
+  connection.query(checkUser, function(err, results) {
+    console.log(results.length);
+    if(results.length > 0)
+    {
+      html = 'Sorry, ' + f_name + ', the Username ' + userName + " is already taken by another user!\n";
+      console.log("\n\nAlready exist!\n\n");
+    }
+    else {
+      connection.query(sql2, function(err, rows, fields) {});
+      html = 'Hello, ' + f_name + '!.<br>' +
+                 'Your username is ' + userName + '.<br>' +
+                 '<a href="/"></a>';
+      console.log("\n\nDoesn't exists!\n\n");
+    }
+    res.send(html);
+  });
 });
 
 // A browser's default method is 'GET', so this
