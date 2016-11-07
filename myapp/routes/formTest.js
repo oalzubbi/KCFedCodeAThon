@@ -25,8 +25,9 @@ router.get('/', function(req, res){
                '<td style="height: 50px;">Enter your City:' +
                '<td style="height: 50px;"><input type="text" name="city" placeholder="Lawrence" /></td></tr>' +
                '<tr>' +
-               '<td style="height: 50px;">Enter your Bio:' +
-               '<td style="height: 50px;"><textarea name="bio" placeholder="Hello" /></textarea></td></tr>' +
+               '<td style="height: 50px;">Enter your Bio:</td>' +
+               '<td style="height: 50px;"><textarea name="bio" placeholder="Hello" /></textarea></td>' +
+               '<td style="height: 50px;">Profile picture (direct Imgur Link)</td><td><input type="text" name="picLink" /></td></tr>' +
                '</table>' +
                '<button style="color:black;" type="submit">Submit</button>' +
             '</form>';

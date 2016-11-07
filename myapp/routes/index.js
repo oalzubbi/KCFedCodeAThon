@@ -16,7 +16,7 @@ var sqlq = "SELECT * FROM Posts";
 router.get('/', function(req, res, next) {
   var user;
   if(req.user){
-    console.log(JSON.stringify(req.user));
+    //console.log(JSON.stringify(req.user));
     user = req.user[0].User_Id;}
     connection.query(sqlq, function(err, results) {
     var current_post;
@@ -38,4 +38,24 @@ router.get('/', function(req, res, next) {
 //  res.render('index', { title: 'FED PROJECT',results: html });
 });
 
+
+function popularitySort(A) {
+    var N = A.length;
+    if (N < 2) { return; }
+    var leastInx = 0
+    var leastID = A[0].internet_points;
+    for (var i = 1; i < N; ++i) {
+        var thisID = A[i].internet_points;
+        if (thisID < leastID) {
+            leastInx = i; leastID = thisID; }}
+    var tmp = A[0];
+    A[0] = A[leastInx];
+    A[leastInx] = tmp;
+    for (i = 2; i < N; ++i) {
+        tmp = A[i];
+        //console.log(tmp);
+        for (var j = i; A[j-1].internet_points > tmp.internet_points; --j) {
+            A[j] = A[j-1]; }
+        A[j] = tmp; }
+}
 module.exports = router;
