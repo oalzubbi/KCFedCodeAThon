@@ -33,7 +33,7 @@ The second aspect of the application is the user profile. This functions similar
   -navigate into the myApp directory from the command line
   -to start the server, enter the command npm start
   -in your browser, go to localhost:3000
-  -enjoy!
+  -this can also be run in windows by following the same steps in powershell
   
 # Here is the link to our project presentation video:
 # http://www.youtube.com/watch?v=taUfxiyY1a0
