@@ -30,7 +30,7 @@ function isLoggedIn(req, res, next) {
     user = req.user[0].User_Id;
 
 	// if they aren't redirect them to the home page
-res.render('index', {title: "FED PROJECT", user: user});
+res.render('index', { results: "<p></p> ", title: "Already Logged In", user: user});
   window.alert("You are already logged in.")
 }
 

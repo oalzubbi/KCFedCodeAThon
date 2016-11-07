@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
       }else{
         verification = "No";
       }
-      
+
       res.render('Profile/userprofile', { title: "Profile",
                                            user:        results[0].User_Id,
                                            LastName:    results[0].LastName,
@@ -38,8 +38,8 @@ router.get('/', function(req, res, next) {
                                            Location:    results[0].Location,
                                            Karma:       results[0].Karma,
                                            Verified:    verification,
-                                           Bio:         results[0].Bio
-
+                                           Bio:         results[0].Bio,
+                                           pic:         results[0].PROFILEPIC
                                         });
     });
 });

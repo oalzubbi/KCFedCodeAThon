@@ -39,6 +39,7 @@ module.exports = function(passport) {
                 var bio = req.body.bio;
                 var city = req.body.city;
                 var state = req.body.state;
+                var pic = req.body.picLink;
                 if (err)
                     return done(err);
                 if (rows.length) {
@@ -50,7 +51,7 @@ module.exports = function(passport) {
                     };
                     geocoder.geocode(city + ', ' + state, function ( err, data ) {
 
-                        var insertQuery = 'INSERT INTO Users (User_Id, LastName, FirstName, Karma, Verified, Bio, Location, PassWord) VALUES (\'' + newUserMysql.username + '\',\'' + LastName + '\', \'' + FirstName + '\', \'0\' , \'0\' , \'' + bio + '\', \'' + data.results[0].place_id + '\', \'' + newUserMysql.password + '\')';
+                        var insertQuery = 'INSERT INTO Users (User_Id,PROFILEPIC, LastName, FirstName, Karma, Verified, Bio, Location, PassWord) VALUES (\'' + newUserMysql.username + '\',\'' + pic + '\',\'' + LastName + '\', \'' + FirstName + '\', \'0\' , \'0\' , \'' + bio + '\', \'' + data.results[0].place_id + '\', \'' + newUserMysql.password + '\')';
                         connection.query(insertQuery,function(err, results) {
                             //console.log(newUserMysql);
                             connection.query("SELECT * FROM Users WHERE User_Id = ?",[username], function(err, rows){

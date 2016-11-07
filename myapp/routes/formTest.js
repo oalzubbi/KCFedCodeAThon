@@ -14,7 +14,7 @@ router.get('/', function(req, res){
                '<input type="text" name="username" placeholder="bob" />' +
                '<br>' +
                'Enter your Password:' +
-               '<input type="text" name="password" placeholder="..." />' +
+               '<input type="password" name="password" placeholder="..." />' +
                '<br>' +
                'Enter your First Name:' +
                '<input type="text" name="FirstName" placeholder="Bob" />' +
@@ -30,6 +30,8 @@ router.get('/', function(req, res){
                '<br>' +
                'Enter your State Initials:' +
                '<input type="text" name="state" placeholder="KS" />' +
+               '<br>' +
+               '<input type="text" name="picLink" placeholder="imgurLink" />' +
                '<br>' +
                '<button type="submit">Submit</button>' +
             '</form>';
