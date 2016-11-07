@@ -33,7 +33,7 @@ router.get('/', function(req, res, next) {
     string += "</table>";
     var html = string;
 
-    res.render('index', {results: html, title: "Post Results", user: user});
+    res.render('index', {results: html, title: "Front Page", user: user});
   });
 //  res.render('index', { title: 'FED PROJECT',results: html });
 });
