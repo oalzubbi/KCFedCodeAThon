@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
     for(var i = 0; i < results.length; i++)
     {
       current_post = results[i];
-      string += '<form action="/postpage" method="post" name="pid" placeholder=' + i + '><tr><td class='author' height='15'>Author: ' + current_post.author_id+ '</td>';
+      string += '<form action="/postpage" method="post" name="pid" placeholder=' + i + '><tr><td class="author" height="15">Author: ' + current_post.author_id+ '</td>';
       string += "<td class ='pop' height='35' rowspan='2'>Popularity: " + current_post.internet_points + "</td><td rowspan='2'><button type='submit'>Join</button></td></tr>";
       string += '<tr colspan="2" rowspan="2"><td height="35">' + current_post.content + "</td></tr></form>";
     }
