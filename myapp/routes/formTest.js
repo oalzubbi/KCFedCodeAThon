@@ -11,22 +11,22 @@ router.get('/', function(req, res){
 
   var html = '<form action="/results" method="post">' +
                '<table style="width:100%;" border="0"><col width="220"><tr><td>Enter your Username:</td>' +
-               '<td style="height: 50px;"><input type="text" name="username" placeholder="Bob" /></td>' +
+               '<td style="height: 50px;"><input type="text" name="username" /></td>' +
                '<td style="height: 50px;">Enter your Password:</td>' +
-               '<td style="height: 50px;"><input type="text" name="password" placeholder="..." /></td></tr>' +
+               '<td style="height: 50px;"><input type="text" name="password"/></td></tr>' +
                '<tr>' +
                '<td style="height: 50px;">Enter your First Name:' +
-               '<td style="height: 50px;"><input type="text" name="FirstName" placeholder="Bob" /></td>' +
+               '<td style="height: 50px;"><input type="text" name="FirstName" /></td>' +
                '<td style="height: 50px;">Enter your Last Name:' +
-               '<td style="height: 50px;"><input type="text" name="LastName" placeholder="Smith" /></td></tr>' +
+               '<td style="height: 50px;"><input type="text" name="LastName" /></td></tr>' +
                '<tr>' +
                '<td style="height: 50px;">Enter your State Initials:' +
-               '<td style="height: 50px;"><input type="text" name="state" placeholder="KS" /></td>' +
+               '<td style="height: 50px;"><input type="text" name="state" /></td>' +
                '<td style="height: 50px;">Enter your City:' +
-               '<td style="height: 50px;"><input type="text" name="city" placeholder="Lawrence" /></td></tr>' +
+               '<td style="height: 50px;"><input type="text" name="city" /></td></tr>' +
                '<tr>' +
                '<td style="height: 50px;">Enter your Bio:</td>' +
-               '<td style="height: 50px;"><textarea name="bio" placeholder="Hello" /></textarea></td>' +
+               '<td style="height: 50px;"><textarea name="bio" /></textarea></td>' +
                '<td style="height: 50px;">Profile picture (direct Imgur Link)</td><td><input type="text" name="picLink" /></td></tr>' +
                '</table>' +
                '<button style="color:black;" type="submit">Submit</button>' +

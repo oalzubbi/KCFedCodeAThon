@@ -1,12 +1,14 @@
-
 <!DOCTYPE html>
 <html>
 <%- include('templates/header.ejs', {user: user}) %>
 
   <body>
-    <h1><%= title %></h1>
-    <div class="container">
-      <p><%- myform %></p>
+  <div id="fed-jumbo" class="jumbotron">
+    <div style="text-align:center;" class="container">
+      <h1 style="color:#FF3F50;">~Post a snazz~</h1>
+    <%- myform %>
     </div>
+  </div>
   </body>
+  <% include templates/footer.ejs %>
 </html>
