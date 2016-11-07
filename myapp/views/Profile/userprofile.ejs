@@ -13,22 +13,25 @@
 				<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script> -->
 					<img src= <%=pic %> title="source: imgur.com" /></img>
 			</div>
-      <div id= "userName">
-        <p> User Name: <%=user%> </p>
-      </div>
-      <div id="name">
-        <p> Name: <%=FirstName%>  <%=LastName%></p>
-      </div>
-      <div id="city">
-        <p> Location: <%=Location%> </p>
-      </div>
-			<div id="karma">
-				<p> Karma: <%=Karma%> </p>
-			</div>
-      <div id="Verified">
-        <p> Verified: <%=Verified%> </p>
-      </div>
-	</div>
+	<div>
+	<h2 style="text-align:center">Bio</h2>
+	<table style="font-size:22px" id="bioTable" align="center">
+		<col width="200">
+		<tr>
+      <td id= "userName">User Name: </td><td><%=user%></td></tr>
+		<tr>
+			<td id= "Name">Name: </td><td><%=FirstName%>  <%=LastName%></td></tr>
+    <tr>
+      <td id="karma"> Karma: </td><td> <%=Karma%> </td></tr>
+		<tr>
+      <td id="Verified">Verified:
+        <%if (Verified > 0) { %>
+						<img src= "http://i.imgur.com/29R7Lqz.jpg" style="width:12px;height:12px;"/>
+				<% } %>
+		</td></tr></table>
+		</div>
+		</div>
+		<br><br><br><br><br><br>
 	<div id="bio">
     <p> Biography </p>
 		<p class="meta"></p>

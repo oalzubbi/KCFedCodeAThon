@@ -13,7 +13,7 @@ router.get('/', function(req, res){
                '<table style="width:100%;" border="0"><col width="220"><tr><td>Enter your Username:</td>' +
                '<td style="height: 50px;"><input type="text" name="username" /></td>' +
                '<td style="height: 50px;">Enter your Password:</td>' +
-               '<td style="height: 50px;"><input type="text" name="password"/></td></tr>' +
+               '<td style="height: 50px;"><input type="password" name="password"/></td></tr>' +
                '<tr>' +
                '<td style="height: 50px;">Enter your First Name:' +
                '<td style="height: 50px;"><input type="text" name="FirstName" /></td>' +

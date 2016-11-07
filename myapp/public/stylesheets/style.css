@@ -61,12 +61,16 @@ a {
   color: #00B7FF;
 }
 
+#bioTable.td{
+  font-size: 22px;
+}
+
 #quickTake{
     background: #C4D2E2;
     position: relative;
     z-index: 6;
     float: left;
-    width: 405px;
+    width: 100%;
     word-wrap: break-word;
     padding-left: 20px;
     padding-right: 20px;
