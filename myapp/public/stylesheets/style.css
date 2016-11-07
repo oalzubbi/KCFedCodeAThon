@@ -5,9 +5,8 @@
 #navbar-fed.navbar-default { /* #3C3C3C - #222222 */
     padding: 10px;
     font-size: 14px;
-    color: #595B60;
+    /*color: #FF3F50;*/
     background-color: #36C3BF;
-    /*background: #36C3BF;*/
     border: 0px;
     border-radius: 0;
 }
@@ -27,7 +26,7 @@
 
 #navbar-fed.navbar-default .navbar-toggle:hover,
 #navbar-fed.navbar-default .navbar-toggle:focus {
-    background-color: #595B60 ;
+    background-color: #d8d559 ;
 }
 #navbar-fed.navbar-default .navbar-nav>li>a,
 #navbar-fed.navbar-default .navbar-nav>li>ul>li>a,
