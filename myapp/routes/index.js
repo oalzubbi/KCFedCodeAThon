@@ -21,13 +21,13 @@ router.get('/', function(req, res, next) {
     connection.query(sqlq, function(err, results) {
     var current_post;
     var string = "";
-    string = '<table style="width:100%"  border="1">';
+    string = '<table id="front" style="width:100%"  border="0">';
     for(var i = 0; i < results.length; i++)
     {
       current_post = results[i];
-      string += "<tr><td>Author: " + current_post.author_id+ "</td>";
-      string += "<td = rowspan='2'>Popularity: " + current_post.internet_points + "</td></tr>";
-      string += '<tr colspan="2" rowspan="2"><td>' + current_post.content + "</td></tr>"
+      string += "<tr><td class='author' height='15'>Author: " + current_post.author_id+ "</td>";
+      string += "<td class ='pop' height='35' rowspan='2'>Popularity: " + current_post.internet_points + "</td></tr>";
+      string += '<tr colspan="2" rowspan="2"><td height="35">' + current_post.content + "</td></tr>"
       // <%- include('./views/templates/post.ejs', {current_post: current_post}) %>
     }
     string += "</table>";

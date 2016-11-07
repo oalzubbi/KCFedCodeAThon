@@ -10,28 +10,25 @@ router.get('/', function(req, res){
     user = req.user[0].User_Id;
 
   var html = '<form action="/results" method="post">' +
-               'Enter your Username:' +
-               '<input type="text" name="username" placeholder="bob" />' +
-               '<br>' +
-               'Enter your Password:' +
-               '<input type="text" name="password" placeholder="..." />' +
-               '<br>' +
-               'Enter your First Name:' +
-               '<input type="text" name="FirstName" placeholder="Bob" />' +
-               '<br>' +
-               'Enter your Last Name:' +
-               '<input type="text" name="LastName" placeholder="Smith" />' +
-               '<br>' +
-               'Enter your Bio:' +
-               '<input type="text" name="bio" placeholder="Hello" />' +
-               '<br>' +
-               'Enter your City:' +
-               '<input type="text" name="city" placeholder="Lawrence" />' +
-               '<br>' +
-               'Enter your State Initials:' +
-               '<input type="text" name="state" placeholder="KS" />' +
-               '<br>' +
-               '<button type="submit">Submit</button>' +
+               '<table style="width:100%;" border="0"><col width="220"><tr><td>Enter your Username:</td>' +
+               '<td style="height: 50px;"><input type="text" name="username" placeholder="Bob" /></td>' +
+               '<td style="height: 50px;">Enter your Password:</td>' +
+               '<td style="height: 50px;"><input type="text" name="password" placeholder="..." /></td></tr>' +
+               '<tr>' +
+               '<td style="height: 50px;">Enter your First Name:' +
+               '<td style="height: 50px;"><input type="text" name="FirstName" placeholder="Bob" /></td>' +
+               '<td style="height: 50px;">Enter your Last Name:' +
+               '<td style="height: 50px;"><input type="text" name="LastName" placeholder="Smith" /></td></tr>' +
+               '<tr>' +
+               '<td style="height: 50px;">Enter your State Initials:' +
+               '<td style="height: 50px;"><input type="text" name="state" placeholder="KS" /></td>' +
+               '<td style="height: 50px;">Enter your City:' +
+               '<td style="height: 50px;"><input type="text" name="city" placeholder="Lawrence" /></td></tr>' +
+               '<tr>' +
+               '<td style="height: 50px;">Enter your Bio:' +
+               '<td style="height: 50px;"><textarea name="bio" placeholder="Hello" /></textarea></td></tr>' +
+               '</table>' +
+               '<button style="color:black;" type="submit">Submit</button>' +
             '</form>';
 
 
