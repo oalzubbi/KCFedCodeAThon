@@ -15,8 +15,9 @@ router.post('/', passport.authenticate('local-signup', {
   failureRedirect : '/formTest'
 }),    function(req, res) {
         var user;
+        console.log(JSON.stringify(req));
         if(req.user != undefined)
-          user = req.user[0].User_Id;
+          user = req.user[0].username;
         res.redirect('/', {results: res, user: user});
 
 });

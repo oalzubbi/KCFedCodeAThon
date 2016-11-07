@@ -42,7 +42,7 @@ var connection = mysql.createConnection({
             var user;
             if(req.user != undefined)
               user = req.user[0].User_Id;
-
+              console.log(JSON.stringify(req));
             if (req.body.remember) {
               req.session.cookie.maxAge = 1000 * 60 * 3;
             } else {

@@ -50,9 +50,12 @@ module.exports = function(passport) {
                     };
                     geocoder.geocode(city + ', ' + state, function ( err, data ) {
 
-                        var insertQuery = 'INSERT INTO Users (User_Id, LastName, FirstName, Karma, Verified, Bio, Location, PassWord) VALUES (\'' + newUserMysql.username + '\',\'' + LastName + '\', \'' + FirstName + '\', \'0\' , \'0\' , \'' + bio + '\', \'' + data.results[0] + '\', \'' + newUserMysql.password + '\')';
+                        var insertQuery = 'INSERT INTO Users (User_Id, LastName, FirstName, Karma, Verified, Bio, Location, PassWord) VALUES (\'' + newUserMysql.username + '\',\'' + LastName + '\', \'' + FirstName + '\', \'0\' , \'0\' , \'' + bio + '\', \'' + data.results[0].place_id + '\', \'' + newUserMysql.password + '\')';
                         connection.query(insertQuery,function(err, results) {
-                            return done(null, newUserMysql);
+                            //console.log(newUserMysql);
+                            connection.query("SELECT * FROM Users WHERE User_Id = ?",[username], function(err, rows){
+                              return done(null, rows[0]);
+                            });
                         });
                     });
                 }
@@ -76,6 +79,7 @@ module.exports = function(passport) {
                 }
                 if (!bcrypt.compareSync(password, rows[0].PassWord))
                     return done(null, false);
+                //console.log(rows[0]);
                 return done(null, rows[0]);
             });
         })
