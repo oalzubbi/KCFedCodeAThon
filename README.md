@@ -26,7 +26,7 @@ The second aspect of the application is the user profile. This functions similar
   We used this module to authenticate users and manage sessions. The site is obviously dynamic and appears different in certain       aspects to different users.
 # Npm_mysql 
   This module allows for connection and the query of Sql databases. Node generally works better with mongoDB or SQLite but we got creative and found a way to use the EECS department MYSQL servers to host our data.
--Bcrypt 
+# Bcrypt 
   Module that allows for hashing of passwords. For added security 
 # How to Use 
   -clone the repository  
