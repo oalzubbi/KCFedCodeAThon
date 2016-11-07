@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <body>
+      <%- include('templates/header.ejs', {user: user}) %>
+    <div id="fed-jumbo" class="jumbotron">
+      <div class="container">
+      <p>Welcome to <%- title %></p>
+      </div>
+    </div>
+    <%- results %>
+  </body>
+  <% include templates/footer.ejs %>
+</html>

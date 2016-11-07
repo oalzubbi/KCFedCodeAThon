@@ -25,6 +25,7 @@ var createPost = require('./routes/createPost');
 var post_results = require('./routes/post_results');
 var comment = require('./routes/comment');
 var cmt_results = require('./routes/cmt_results');
+var postpage = require('./routes/postpage');
 var app = express();
 
 
@@ -50,6 +51,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/postpage", postpage);
 app.use("/comment", comment);
 app.use("/post_results", post_results);
 app.use("/createPost", createPost);
