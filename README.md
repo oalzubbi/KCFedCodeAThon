@@ -21,7 +21,7 @@ The second aspect of the application is the user profile. This functions similar
 # MySQL 
   All of the Users' information and the post contents were stored to databases queried using the npm_mysql module in NODE.
 # Express.js 
-  A node.js streamlining tool that allows for easier implementation of user-written middleware and  works as a useful template to write scalable node projects. 
+  A node.js streamlining tool that allows for easier implementation of user-written middleware and  works as a useful template to write  scalable node projects. 
 # Passport.js
   We used this module to authenticate users and manage sessions. The site is obviously dynamic and appears different in certain       aspects to different users.
 # Npm_mysql 
@@ -29,11 +29,11 @@ The second aspect of the application is the user profile. This functions similar
 -Bcrypt 
   Module that allows for hashing of passwords. For added security 
 # How to Use 
-  -clone the repository
-  -navigate into the myApp directory from the command line
-  -to start the server, enter the command npm start
-  -in your browser, go to localhost:3000
-  -this can also be run in windows by following the same steps in powershell
+  -clone the repository  
+  -navigate into the myApp directory from the command line  
+  -to start the server, enter the command npm start  
+  -in your browser, go to localhost:3000  
+  -this can also be run in windows by following the same steps in powershell 
   
 # Here is the link to our project presentation video:
 # http://www.youtube.com/watch?v=taUfxiyY1a0
