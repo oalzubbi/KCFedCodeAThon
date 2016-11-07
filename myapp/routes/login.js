@@ -10,7 +10,7 @@ router.get('/', isLoggedIn, function(req, res){
                '<input type="text" name="username" placeholder="bob" />' +
                '<br>' +
                'Enter your Password:' +
-               '<input type="text" name="password" placeholder="..." />' +
+               '<input type="password" name="password" placeholder="..." />' +
                '<br>' +
                '<button type="submit">Submit</button>' +
             '</form>';
