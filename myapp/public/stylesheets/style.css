@@ -2,6 +2,19 @@
     background-image: none;
 }
 
+.author{
+  color:#FF3F50;
+}
+
+td {
+    padding: 15px;
+    text-align: left;
+}
+
+#front {
+  font-size: 22px;
+}
+
 #navbar-fed.navbar-default { /* #3C3C3C - #222222 */
     padding: 10px;
     font-size: 14px;
