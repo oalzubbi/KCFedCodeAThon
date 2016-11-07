@@ -16,15 +16,15 @@ The second aspect of the application is the user profile. This functions similar
 
 # Technical aspects used to achieve the above:
 
--Node.js 
+# Node.js 
   Node.js is a web development platform written entirely in Javascript with a robust interface between server and client. 
--MySQL 
+# MySQL 
   All of the Users' information and the post contents were stored to databases queried using the npm_mysql module in NODE.
--Express.js 
+# Express.js 
   A node.js streamlining tool that allows for easier implementation of user-written middleware and  works as a useful template to write scalable node projects. 
--Passport.js
+# Passport.js
   We used this module to authenticate users and manage sessions. The site is obviously dynamic and appears different in certain       aspects to different users.
--Npm_mysql 
+# Npm_mysql 
   This module allows for connection and the query of Sql databases. Node generally works better with mongoDB or SQLite but we got creative and found a way to use the EECS department MYSQL servers to host our data.
 -Bcrypt 
   Module that allows for hashing of passwords. For added security 
