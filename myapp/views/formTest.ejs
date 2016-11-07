@@ -2,7 +2,7 @@
 <head>
 <title>formTest</title>
 </head>
-<% include templates/header.ejs %>
+<%- include('templates/header.ejs', {user: user}) %>
 
 <div id="fed-jumbo" class="jumbotron">
   <div style="text-align:left;" class="container">
