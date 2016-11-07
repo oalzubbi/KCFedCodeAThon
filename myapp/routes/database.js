@@ -23,14 +23,9 @@ router.get('/', function(req, res, next) {
     var m_rows = "" + rows.value_1;
     // var m_rows = JSON.stringify(rows.value_1);
     if (err) throw err;
-    var drinks = [
-        { name: 'Bloody Mary', drunkness: 3 },
-        { name: 'Martini', drunkness: 5 },
-        { name: 'Scotch', drunkness: 10 }
-    ];
 
     // var current_user = req.user;
-    res.render('database', { title: 'database', rows: string, drinks: drinks, user: user });
+    res.render('database', { title: 'database', rows: string, user: user });
   });
 });
 /*

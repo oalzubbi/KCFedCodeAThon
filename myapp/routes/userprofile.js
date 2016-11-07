@@ -30,7 +30,7 @@ router.get('/', function(req, res, next) {
       }else{
         verification = "No";
       }
-      
+
       res.render('Profile/userprofile', { title: "Profile",
                                            user:        results[0].User_Id,
                                            LastName:    results[0].LastName,
