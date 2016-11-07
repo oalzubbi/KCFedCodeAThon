@@ -1,4 +1,3 @@
-
 <html>
 <%- include('../templates/header.ejs', {user: user}) %>
 <head>
@@ -8,60 +7,33 @@
 <body>
 	<div id="quickTake">
       <div id="profilePicture">
-        <p> Profile Picture </p>
-				<img id="profilepic" src="myapp/views/Profile/stockphoto.png" height="175" width="175"></img>
-      </div>
+				<!-- <blockquote class="imgur-embed-pub" lang="en" data-id="NPloMG6">
+					<a href="//imgur.com/NPloMG6"></a>
+				</blockquote>
+				<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script> -->
+					<img src = "http://i.imgur.com/NPloMG6.png"></img>
+			</div>
       <div id= "userName">
-        <p> User Name </p>
-      </div>
-      <div id="topBadges">
-        <p> Top Badges </p>
+        <p> User Name: <%=user%> </p>
       </div>
       <div id="name">
-        <p> Name </p>
+        <p> Name: <%=FirstName%>  <%=LastName%></p>
       </div>
       <div id="city">
-        <p> City </p>
+        <p> Location: <%=Location%> </p>
       </div>
-      <div id="memberSince">
-        <p> Member Since </p>
+			<div id="karma">
+				<p> Karma: <%=Karma%> </p>
+			</div>
+      <div id="Verified">
+        <p> Verified: <%=Verified%> </p>
       </div>
-      <div id="topAffilates">
-        <p> Top Affiliates </p>
-      </div>
-      <div id="topInterests">
-        <p> Top Interests </p>
-      </div>
-      <!--add message button here, make hidden when on own profile-->
 	</div>
-  <div id="miniFeed">
-    <p> Mini Feed </p>
-  </div>
 	<div id="bio">
     <p> Biography </p>
 		<p class="meta"></p>
-    <div id="description">
-      <p> Description </p>
-    </div>
-    <div id="contactInfo">
-      <p> Contact Information </p>
-    </div>
+		<p> <%=Bio%> </p>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	</div>
-  <div id="experience">
-    <p> Experience </p>
-		<p class="meta"></p>
-
-  </div>
-  <div id="skillsAndInterests">
-    <p> Skills and Interests </p>
-		<p class="meta"></p>
-
-    <div id="skills">
-      <p> Skills </p>
-    </div>
-    <div id="interests">
-      <p> Interests </p>
-    </div>
-  </div>
 </body>
 </html>
