@@ -1,0 +1,25 @@
+
+
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+
+
+<nav id ="navbar-fed" class="navbar navbar-default" role="navigation">
+  <ul class="nav navbar-nav">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About us</a></li>
+    <li><a href="/contact">Contact us</a></li>
+    <li><a href="/formTest">Register</a></li>
+    <li><a href="/login">Login</a></li>
+    <li><a href ="/geocoding_example">Geocoding Example</a></li>
+    <li><a href ="/database">Database</a></li>
+    <% if(user != undefined){ %>
+      <li><a href ="/userprofile"><%= user %>'s Profile</a></li>
+    <% } %>
+  </ul>
+</nav>
